@@ -11,24 +11,23 @@ const uri = process.env.DATABASE_URI
 app.use(bodyPerser.json());
 const serverless = require('serverless-http');
 
-// const userRoutes = require('../src/routes/userRoutes');
+const userRoutes = require('../src/routes/userRoutes');
 const todosRoutes = require('../src/routes/todosRoutes');
 
-// app.use(userRoutes);
-// app.use(todosRoutes);
+app.use('/todosServer/getUser',userRoutes);
 app.use('/todosServer', todosRoutes);
 
 mongoose.connect(uri).then((result)=>{
   try{
-    
-    module.exports.handler = serverless(app);
-  }catch{
-     throw new Error('something wrong with database')
-  }
-}).catch((err)=>{
+     console.log('connect'); 
+    }catch{
+      throw new Error('something wrong with database')
+    }
+  }).catch((err)=>{
   throw new Error(err)
 })
 
+module.exports.handler = serverless(app);
 
 
 
