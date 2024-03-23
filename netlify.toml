@@ -1,10 +1,6 @@
 [functions]
- external_node_modules = ["express"]
- 
+ directory = 'functions'
   
-[dev]
-  publish = "dist"
-
 [build] 
   functions = "functions"
 
