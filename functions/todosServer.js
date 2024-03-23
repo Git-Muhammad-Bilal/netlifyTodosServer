@@ -6,7 +6,7 @@ const app = express();
 require('dotenv').config()
 const uri = process.env.DATABASE_URI
 
-// app.use(cors("http://localhost:3000/"))
+app.use(cors())
 
 app.use(bodyPerser.json());
 const serverless = require('serverless-http');
