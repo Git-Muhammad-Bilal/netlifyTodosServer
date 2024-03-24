@@ -5,7 +5,7 @@ const bodyPerser = require('body-parser')
 const app = express();
 require('dotenv').config()
 app.use(cors({
-  origin: "'https://netlifytodosserver.netlify.app",
+  origin: "https://netlifytodosserver.netlify.app",
 }
 ))
 app.use(bodyPerser.json());
