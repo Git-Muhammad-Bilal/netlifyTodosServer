@@ -8,6 +8,7 @@ app.use(cors({
   origin: "https://netlifytodosserver.netlify.app",
 }
 ))
+app.options('*', cors())
 app.use(bodyPerser.json());
 const serverless = require('serverless-http');
 
