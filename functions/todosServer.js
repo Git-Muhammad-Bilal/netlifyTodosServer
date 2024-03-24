@@ -4,10 +4,7 @@ const mongoose = require('mongoose');
 const bodyPerser = require('body-parser')
 const app = express();
 require('dotenv').config()
-app.use(cors({
-  origin: "https://netlifytodosserver.netlify.app",
-}
-))
+app.use(cors("https://netlifytodosserver.netlify.app"))
 app.options('*', cors())
 app.use(bodyPerser.json());
 const serverless = require('serverless-http');
