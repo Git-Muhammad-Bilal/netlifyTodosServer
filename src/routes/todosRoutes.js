@@ -3,7 +3,7 @@ const { createTodo, getTodos, deleteTodo, editTodo } = require('../controllers/C
 const { tokenValidate } = require('../middleware/tokenValidate');
 const router = express.Router();
 
-router.get('/getTodos',tokenValidate, getTodos)
+router.get('/getTodos', tokenValidate,getTodos)
 router.post('/createTodo',tokenValidate, createTodo)
 router.get('/getTodos',tokenValidate, getTodos)
 router.patch('/editTodo/:todoId',tokenValidate, editTodo)

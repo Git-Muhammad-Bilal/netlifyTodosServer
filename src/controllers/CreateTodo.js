@@ -15,14 +15,15 @@ exports.createTodo = async (req, res) => {
   
 }
 exports.getTodos = async (req, res) => {
-  let {email, password, _id} = req.user
-    res.send('toods are working')
-  try {
-    let data = await Todos.find({userId:_id})
-    res.send(data)
-  } catch (error) {
-    res.status(404).send(error?.message)
-  }
+  let data = await Todos.find({userId:_id})
+  res.send(data)
+  // let {email, password, _id} = req.user
+  // try {
+  //   let data = await Todos.find({userId:_id})
+  //   res.send(data)
+  // } catch (error) {
+  //   res.status(404).send(error?.message)
+  // }
   
 }
 
