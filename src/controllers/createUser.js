@@ -18,7 +18,7 @@ exports.createUser = async (req, res) => {
       let newUser = await Users.create({ email, password: hashedPassword })
       let newJwtToken = jwt.sign({ ...newUser }, process.env.ACCESS_SECRET_KEY)
   
-      res.send({ jwtToken: newJwtToken, email: existingUser.email })
+      res.send({ jwtToken: newJwtToken, email: existingUser?.email })
   
     }
   } catch (error) {

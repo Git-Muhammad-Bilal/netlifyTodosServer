@@ -1,13 +1,14 @@
-let cors = require('cors');
 const express = require('express');
+let cors = require('cors');
 const mongoose = require('mongoose');
 const bodyPerser = require('body-parser')
+const serverless = require('serverless-http');
 const app = express();
 require('dotenv').config()
+
 app.use(cors("https://netlifytodosserver.netlify.app"))
 app.options('*', cors())
 app.use(bodyPerser.json());
-const serverless = require('serverless-http');
 
 const userRoutes = require('../src/routes/userRoutes');
 const todosRoutes = require('../src/routes/todosRoutes');
