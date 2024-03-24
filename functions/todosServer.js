@@ -4,23 +4,26 @@ const mongoose = require('mongoose');
 const bodyPerser = require('body-parser')
 const app = express();
 require('dotenv').config()
-app.use(cors())
+app.use(cors({
+  origin: "'https://netlifytodosserver.netlify.app",
+}
+))
 app.use(bodyPerser.json());
 const serverless = require('serverless-http');
 
 const userRoutes = require('../src/routes/userRoutes');
 const todosRoutes = require('../src/routes/todosRoutes');
 
-app.use('/todosServer',userRoutes);
+app.use('/todosServer', userRoutes);
 app.use('/todosServer', todosRoutes);
 
-mongoose.connect(process.env.DATABASE_URI).then((result)=>{
-  try{
-     console.log('connect'); 
-    }catch{
-      throw new Error('something wrong with database')
-    }
-  }).catch((err)=>{
+mongoose.connect(process.env.DATABASE_URI).then((result) => {
+  try {
+    console.log('connect');
+  } catch {
+    throw new Error('something wrong with database')
+  }
+}).catch((err) => {
   throw new Error(err)
 })
 
